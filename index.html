@@ -142,8 +142,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 28px 6vw;
+      padding: 10px 6vw;
       transition: padding .4s ease, background .4s ease, box-shadow .4s ease;
+
+      /* NOVO */
+      background: rgba(251, 247, 240, 0.000);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all .4s ease;
     }
 
     header.scrolled {
@@ -225,7 +231,7 @@
     .hero-bg-image {
       position: absolute;
       inset: 0;
-      background: url('fotos/copa.jpg') center/cover no-repeat;
+      background: url('fotos/4.jpg') center/cover no-repeat;
       filter: saturate(0.85) brightness(1.02);
     }
 
@@ -881,6 +887,72 @@
         height: 24px;
       }
     }
+
+    #screensaver {
+
+      position: fixed;
+      inset: 0;
+
+      background: #000;
+
+      z-index: 99999;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition: .8s;
+
+    }
+
+    #screensaver.show {
+
+      opacity: 1;
+      visibility: visible;
+
+    }
+
+    #screensaver img {
+
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      opacity: 0;
+
+      transition: opacity 2s;
+
+    }
+
+    #screensaver img.active {
+
+      opacity: 1;
+
+    }
+
+    .logo-screen {
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      color: white;
+
+      font-size: 90px;
+
+      letter-spacing: 15px;
+
+      font-family: 'Cormorant Garamond', serif;
+
+      text-shadow: 0 0 25px rgba(0, 0, 0, .5);
+
+    }
   </style>
 </head>
 
@@ -903,6 +975,22 @@
       </ul>
     </nav>
   </header>
+
+  <div id="screensaver">
+
+    <img src="fotos/1.jpg" class="ss active">
+    <img src="fotos/2.jpg" class="ss">
+    <img src="fotos/3.jpg" class="ss">
+    <img src="fotos/4.jpg" class="ss">
+    <img src="fotos/5.jpg" class="ss">
+    <img src="fotos/6.jpg" class="ss">
+
+    <div class="overlay">
+      <h1>TUHU</h1>
+      <p>Restaurante & Cafeteria</p>
+    </div>
+
+  </div>
 
   <section class="hero">
     <div class="hero-bg-image"></div>
@@ -947,12 +1035,14 @@
       <div class="story-copy reveal">
         <span class="eyebrow">Nossa história</span>
         <h2 class="serif">Tuhu é um personagem -<br> uma homenagem. </h2>
-        <p>Tuhu é o nome de um personagem inspirado no maestro e compositor Heito Vila-Lobos, conhecido por imitar o som
-          de locomotivas da época, se tornando um símbolo da música brasileira.
-
+        <p>
+          Tuhu é o apelido de infância do maestro e compositor brasileiro
+          Heitor Villa-Lobos. Quando criança, ele era chamado de "Tuhu",
+          um nome que acabou se tornando parte de sua identidade e da história
+          da música brasileira. Nosso restaurante homenageia essa figura
+          que representa criatividade, cultura e autenticidade.
         </p>
       </div>
-    </div>
   </section>
 
   <section class="section-pad">
@@ -1058,9 +1148,7 @@
   <section id="ambiente" class="scrolly" data-dark-header>
     <div class="scrolly-stage">
       <div class="scrolly-item active">
-        <div class="simg"><img
-            src="fotos/1.jpg"
-            alt="Salão do restaurante Tuhu"></div>
+        <div class="simg"><img src="fotos/1.jpg" alt="Salão do restaurante Tuhu"></div>
         <div class="scrolly-veil"></div>
         <div class="scrolly-caption">
           <span class="eyebrow">Salão</span>
@@ -1069,9 +1157,7 @@
         </div>
       </div>
       <div class="scrolly-item scrolly-right">
-        <div class="simg"><img
-            src="fotos/2.jpg"
-            alt="Balcão de café"></div>
+        <div class="simg"><img src="fotos/2.jpg" alt="Balcão de café"></div>
         <div class="scrolly-veil"></div>
         <div class="scrolly-caption">
           <span class="eyebrow">Balcão</span>
@@ -1080,9 +1166,7 @@
         </div>
       </div>
       <div class="scrolly-item">
-        <div class="simg"><img
-            src="fotos/3.jpg"
-            alt="Grãos de café selecionados"></div>
+        <div class="simg"><img src="fotos/3.jpg" alt="Grãos de café selecionados"></div>
         <div class="scrolly-veil"></div>
         <div class="scrolly-caption">
           <span class="eyebrow">Grãos</span>
@@ -1091,20 +1175,16 @@
         </div>
       </div>
       <div class="scrolly-item scrolly-right">
-        <div class="simg"><img
-            src="fotos/41.jpg"
-            alt="Mesa posta ao entardecer"></div>
+        <div class="simg"><img src="fotos/41.jpg" alt="Mesa posta ao entardecer"></div>
         <div class="scrolly-veil"></div>
         <div class="scrolly-caption">
           <span class="eyebrow">Exterior</span>
           <h3 class="serif">Posta ao entardecer</h3>
-          <p>Luzes baixas, e o dia desacelerando coom quem mais gostamos.</p>
+          <p>Luzes baixas, e o dia desacelerando com quem mais gostamos.</p>
         </div>
       </div>
       <div class="scrolly-item">
-        <div class="simg"><img
-            src="fotos/5.jpg"
-            alt="Cozinha aberta"></div>
+        <div class="simg"><img src="fotos/5.jpg" alt="Cozinha aberta"></div>
         <div class="scrolly-veil"></div>
         <div class="scrolly-caption">
           <span class="eyebrow">Cozinha</span>
@@ -1113,9 +1193,7 @@
         </div>
       </div>
       <div class="scrolly-item scrolly-right">
-        <div class="simg"><img
-            src="fotos/6.jpg"
-            alt="Cantinho de leitura junto à janela"></div>
+        <div class="simg"><img src="fotos/6.jpg" alt="Cantinho de leitura junto à janela"></div>
         <div class="scrolly-veil"></div>
         <div class="scrolly-caption">
           <span class="eyebrow">Janela</span>
@@ -1224,36 +1302,64 @@
 
     /* ---------- scrollytelling engine ---------- */
     function setupScrolly(section) {
-      const items = section.querySelectorAll('.scrolly-item');
-      const ticksHost = section.querySelector('.scrolly-ticks');
-      const count = items.length;
+
+      const items = [...section.querySelectorAll(".scrolly-item")];
+      const ticksHost = section.querySelector(".scrolly-ticks");
 
       items.forEach((_, i) => {
-        const t = document.createElement('div');
-        t.className = 'tick' + (i === 0 ? ' lit' : '');
+        const t = document.createElement("div");
+        t.className = "tick" + (i == 0 ? " lit" : "");
         ticksHost.appendChild(t);
       });
-      const ticks = ticksHost.querySelectorAll('.tick');
 
-      section.style.height = (count * 100) + 'vh';
+      const ticks = [...ticksHost.querySelectorAll(".tick")];
 
-      let activeIndex = 0;
-      function update() {
-        const rect = section.getBoundingClientRect();
-        const total = rect.height - window.innerHeight;
-        let progress = total > 0 ? (-rect.top) / total : 0;
-        progress = Math.min(1, Math.max(0, progress));
-        let idx = Math.floor(progress * count);
-        if (idx >= count) idx = count - 1;
-        if (idx !== activeIndex || rect.top > window.innerHeight || rect.bottom < 0) {
-          activeIndex = idx;
-          items.forEach((it, i) => it.classList.toggle('active', i === idx));
-          ticks.forEach((t, i) => t.classList.toggle('lit', i === idx));
-        }
+      section.dataset.index = 0;
+
+      section.style.height = `${items.length * window.innerHeight}px`;
+
+      function show(index) {
+
+        index = Math.max(0, Math.min(index, items.length - 1));
+
+        items.forEach((item, i) => {
+          item.classList.toggle("active", i === index);
+        });
+
+        ticks.forEach((tick, i) => {
+          tick.classList.toggle("lit", i === index);
+        });
+
+        section.dataset.index = index;
+
       }
-      window.addEventListener('scroll', update, { passive: true });
-      window.addEventListener('resize', update);
+
+      function update() {
+
+        if (window.autoPlaying) return;
+
+        const rect = section.getBoundingClientRect();
+
+        const total = rect.height - window.innerHeight;
+
+        let progress = (-rect.top) / total;
+
+        progress = Math.max(0, Math.min(progress, 1));
+
+        const index = Math.min(items.length - 1, Math.floor(progress * items.length));
+
+        show(index);
+
+      }
+
+      window.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+
+      section.showSlide = show;
+      section.totalSlides = items.length;
+
       update();
+
     }
     document.querySelectorAll('.scrolly').forEach(setupScrolly);
 
@@ -1310,6 +1416,131 @@
       }
     });
 
+    // =========================
+    // MODO APRESENTAÇÃO
+    // =========================
+    let autoTimer;
+    let idleTimer;
+    let currentSection = 0;
+
+    function goToSection(index) {
+
+      if (index >= sections.length) {
+        currentSection = 0;
+      } else {
+        currentSection = index;
+      }
+
+      document.querySelector(sections[currentSection]).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      currentSection++;
+
+    }
+
+    function startAuto() {
+
+      if (autoMode) return;
+
+      autoMode = true;
+
+      autoTimer = setInterval(() => {
+        goToSection(currentSection);
+      }, 7000);
+
+    }
+
+    function stopAuto() {
+
+      autoMode = false;
+
+      clearInterval(autoTimer);
+
+    }
+
+    function resetIdle() {
+
+      stopAuto();
+
+      clearTimeout(idleTimer);
+
+      idleTimer = setTimeout(() => {
+
+        currentSection = 0;
+
+        startAuto();
+
+      }, 3000000000);
+
+    }
+
+    ["mousemove", "wheel", "scroll", "keydown", "touchstart"].forEach(evt => {
+
+      window.addEventListener(evt, resetIdle, { passive: true });
+
+    });
+
+    resetIdle();
+
+    const saver = document.getElementById("screensaver");
+    const imgs = [...saver.querySelectorAll("img")];
+
+    let indice = 0;
+    let tempoInativo;
+    let troca;
+
+    function mostrarSaver() {
+
+      saver.classList.add("show");
+
+      imgs.forEach(img => img.classList.remove("active"));
+
+      indice = 0;
+
+      imgs[0].classList.add("active");
+
+      troca = setInterval(() => {
+
+        imgs[indice].classList.remove("active");
+
+        indice++;
+
+        if (indice >= imgs.length)
+          indice = 0;
+
+        imgs[indice].classList.add("active");
+
+      }, 5000);
+
+    }
+
+    function esconderSaver() {
+
+      saver.classList.remove("show");
+
+      clearInterval(troca);
+
+    }
+
+    function resetarTempo() {
+
+      esconderSaver();
+
+      clearTimeout(tempoInativo);
+
+      tempoInativo = setTimeout(mostrarSaver, 10000);
+
+    }
+
+    ["mousemove", "wheel", "scroll", "keydown", "touchstart", "click"].forEach(e => {
+
+      window.addEventListener(e, resetarTempo, { passive: true });
+
+    });
+
+    resetarTempo();
 
   </script>
 </body>
